@@ -223,7 +223,7 @@
 | 사용 기술 | Tailwind, Next.js, FastAPI, tiktoken,LangChain,LLMLingua,Firebase Firestore |
 | 기대 효과 | AI 사용성 계선 및 비용 감소 |
 | GitHub Repo | [https://github.com/kimnnnn4215g/Ewha-2026-Spring](https://github.com/kimnnnn4215g/Ewha-2026-Spring) |
-| Team Ground Rule | [Team Ground Rule](Team_Ground_Rule.md) |
+| Team Ground Rule | [Team Ground Rule](https://github.com/kimnnnn4215g/Ewha-2026-Spring/blob/main/Team_Ground_Rule.md) |
 | 최종수정일 | 03.10 09시 50분 |
 
 [↑ 목록으로](#2026-spring-전체-프로젝트-리스트)
