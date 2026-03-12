@@ -170,15 +170,15 @@
 | 트랙 | 산학 |
 | 팀명 | 하면된다 |
 | 팀구성 | 김수연, 이예주, 조채윤 |
-| 팀지도교수 |  |
+| 팀지도교수 | 오세은 교수님 |
 | 무엇을 만들고자 하는가 | AI 기반 가격 검증과 정시 경매 시스템으로 정보 비대칭과 탐색 피로를 해결하는 빈티지 거래 플랫폼 |
 | 고객 (누구를 위해) | 빈티지 거래 플랫폼 이용자 |
 | Pain Point (해결할 문제) | (1) 가격 정보의 불균형: 판매자가 상품 가격을 임의로 책정하는 경우가 많아, 구매자가 적정 가격을 판단하기 어려운 구조</br>(2) 구매자의 탐색 피로: 원하는 매물의 업로드 시점을 알기 어려워, 사용자가 플랫폼에 반복적으로 접속하며 무한 스크롤링을 지속하는 문제</br>(3) 판매글 노출의 비효율: 게시글이 업로드 시점에 따라 쉽게 묻혀, 판매자가 동일한 글을 반복 업로드해야 하는 비효율 |
 | 사용 기술 | Vision AI(FastAPI+상용 API), Spring, React 등 |
 | 기대 효과 | (1) 상품별 AI 측정가와 판매자 희망가 병기를 통한 가격 판단 기준 제공</br>(2) AI 측정가와 희망가 차이 제한을 통한 가격 신뢰도 향상</br>(3) 특정 시각 일괄 경매 방식을 통한 구매자 탐색 피로 완화 및 판매자 노출 기회의 공정성 확보 |
 | GitHub Repo | [https://github.com/hamyeon/Team-Hamyeon](https://github.com/hamyeon/Team-Hamyeon) |
-| Team Ground Rule | [https://github.com/hamyeon/Team-Hamyeon/blob/main/Team_Ground_Rule.md](https://github.com/hamyeon/Team-Hamyeon/blob/main/Team_Ground_Rule.md) |
-| 최종수정일 | 2026.03.10 |
+| Team Ground Rule | [Team Grouond Rule](https://github.com/hamyeon/Team-Hamyeon/blob/main/Team_Ground_Rule.md) |
+| 최종수정일 | 2026.03.12 |
 
 [↑ 목록으로](#2026-spring-전체-프로젝트-리스트)
 
@@ -193,15 +193,15 @@
 | 트랙 | 산학 |
 | 팀명 | Cloud9 |
 | 팀구성 | 박나림, 임도경, 최은우 |
-| 팀지도교수 |  |
+| 팀지도교수 | 컨택중 |
 | 무엇을 만들고자 하는가 | 퀀트 전략 실시간 상태 모니터링 및 이상 징후 탐지 시스템 |
 | 고객 (누구를 위해) | 개인 자동매매 투자자 |
-| Pain Point (해결할 문제) | 급변 상황으로 인한 알아차리지 못하는 큰 손실을 막기 위해 |
-| 사용 기술 | Isolation Forest나 Autoencoder 같은 모델로 AI 기반 이상 탐지 |
+| Pain Point (해결할 문제) | 여러 퀀트 전략을 동시에 운용할 경우, 이상 상황이 발생했을 때 어떤 전략에서 문제가 생겼는지 빠르게 확인하기 어렵다는 문제가 있다. 본 프로젝트는 전략별 상태를 실시간으로 모니터링하고 이상 징후를 탐지하여, 이를 대시보드로 시각화해 효율적인 대응을 가능하게 한다. |
+| 사용 기술 | Front(React, Recharts, WebSocket client), Back(Python, FastAPI, SQLAlchemy, WebSocket), AI(Pandas, NumPy)  |
 | 기대 효과 | 손실 최소화 |
 | GitHub Repo | [https://github.com/Cloud9-capstone-2026](https://github.com/Cloud9-capstone-2026) |
 | Team Ground Rule | [Team Ground Rule](https://github.com/Cloud9-capstone-2026/cloud9/blob/main/Team_Ground_Rule.md) |
-| 최종수정일 | 2026.03.11 |
+| 최종수정일 | 2026.03.12 |
 
 [↑ 목록으로](#2026-spring-전체-프로젝트-리스트)
 
@@ -216,15 +216,15 @@
 | 트랙 | 산학 |
 | 팀명 | 212223 |
 | 팀구성 | 고윤진(2176018), 김나현(2276040), 이유진(2376218) |
-| 팀지도교수 |  |
+| 팀지도교수 | 심재형 교수님 |
 | 무엇을 만들고자 하는가 | 사용자가 프롬프트를 입력하면 각 AI 모델(GPT-4, Gemini, Claude 등)의 최적화된 프롬프트를 추천 후 그에 따른 예상 비용을 실시간으로 계산하고 비교하는 웹 서비스 |
 | 고객 (누구를 위해) | Ai api를 사용하는 학생 및 개발자, 스타트업 등 비용에 민감한 사용자 |
 | Pain Point (해결할 문제) | AI 프롬프트 작성 미숙으로 인한 과다한 비용 청구 |
 | 사용 기술 | Tailwind, Next.js, FastAPI, tiktoken,LangChain,LLMLingua,Firebase Firestore |
 | 기대 효과 | AI 사용성 계선 및 비용 감소 |
-| GitHub Repo | [https://github.com/kimnnnn4215g/Ewha-2026-Spring](https://github.com/kimnnnn4215g/Ewha-2026-Spring) |
-| Team Ground Rule | [Team Ground Rule](https://github.com/kimnnnn4215g/Ewha-2026-Spring/blob/main/Team_Ground_Rule.md) |
-| 최종수정일 | 03.10 09시 50분 |
+| GitHub Repo | [https://github.com/0727n1122-beep/graduationproject/tree/main](https://github.com/0727n1122-beep/graduationproject/tree/main) |
+| Team Ground Rule | [Team Ground Rule](https://github.com/0727n1122-beep/graduationproject/blob/main/Team_Ground_Rule.md) |
+| 최종수정일 | 03.12 |
 
 [↑ 목록으로](#2026-spring-전체-프로젝트-리스트)
 
