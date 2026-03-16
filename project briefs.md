@@ -29,7 +29,7 @@
 | 항목 | 내용 |
 |------|------|
 | 프로젝트명 | Test-Time Prompt Tuning 기반 Cross-Sensor 도메인 적응을 통한 Vision-Language Model의 열대 저기압 분류 연구 |
-| 서비스명(브랜드) | |
+| 서비스명(브랜드) | CyCLIP |
 | 트랙 | 연구 |
 | 팀명 | 이사장님 |
 | 팀구성 | 설영은, 신지민, 윤희서 |
