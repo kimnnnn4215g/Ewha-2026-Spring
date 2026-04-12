@@ -132,22 +132,22 @@
 
 | 항목 | 내용 |
 |------|------|
-| 프로젝트명 | AI 역사 인물 인터랙션과 다국어 스토리 콘텐츠 기반 역사 관광 활성화 웹 플랫폼 |
+| 프로젝트명 | 역사 스토리 콘텐츠와 역사 인물 챗봇을 활용한 관광 탐색 웹 플랫폼 |
 | 서비스명(브랜드) | Histour |
 | 트랙 | 산학 |
 | 팀명 | Greenfield |
 | 팀구성 | 최준희, 권은재, 김재희 |
-| 팀지도교수 | 컨택중 |
-| 무엇을 만들고자 하는가 | 스토리 콘텐츠 제공, 스토리 기반 장소 관광, 다국어 콘텐츠 |
-| 고객 (누구를 위해) | 한국 문화를 경험하고 싶은 외국인 관광객<br>역사 기반 여행을 원하는 국내 관광객<br>역사와 문화 콘텐츠에 관심 있는 사용자 |
-| Pain Point (해결할 문제) | - 관광지의 스토리 전달 부족<br>- 역사 정보를 흥미롭게 전달하는 방식 부족<br>- 외국인 관광객의 한국 역사 이해 및 관광 접근성 부족<br>- 학생들이 실제 역사 장소를 체험하며 학습할 기회 부족<br><br>스토리를 중심으로 역사 장소를 연결하여 외국인과 학생 모두가 한국 역사를 쉽게 이해하고 직접 체험할 수 있는 몰입형 문화관광 경험을 제공하는 것을 목표 |
-| 사용 기술 | **프론트엔드**<br><br>- React.js, 영상 및 이미지 콘텐츠 UI 구성<br><br>**백엔드**<br><br>- Node.js , MySQL<br><br>**데이터 수집**<br><br>- 관광지 텍스트 데이터 분석, 역사 관련 이미지 및 영상<br><br>**AI 및 추천 시스템**<br><br>- 스토리 기반 관광 코스 추천 알고리즘, LLM 기반 역사 요약 및 다국어 번역 |
+| 팀지도교수 | 박현석 |
+| 무엇을 만들고자 하는가 | 사용자에게 AI 기반 역사 스토리 콘텐츠(텍스트, 영상)와 역사 인물 챗봇과의 대화 기능을 제공하여 역사에 흥미를 느낄 수 있도록 유도한 후, 위 콘텐츠들과 관련한 관광지를 추천하여 대한민국 관광을 활성화할 수 있는 웹 플랫폼을 만들고자 한다. |
+| 고객 (누구를 위해) | 역사에 큰 관심은 없지만 재미있는 콘텐츠에는 반응하는 20~30대 사용자<br>여행을 계획 중이거나, 새로운 여행지를 찾고 싶은 사용자<br>한국 문화를 경험해 보고 싶은 외국인<br>기존 관광 정보 서비스에 흥미를 느끼지 못한 사용자 |
+| Pain Point (해결할 문제) | - 역사 정보를 흥미롭게 전달하는 매체 부족<br>- 외국인 관광객의 한국 역사 이해 및 관광 접근성 부족족<br>- 외국인 관광객의 한국 역사 이해 및 관광 접근성 부족<br>- 학생들이 실제 역사 장소를 체험하며 학습할 기회 부족<br><br>스토리를 중심으로 역사 장소를 연결하여 외국인과 학생 모두가 한국 역사를 쉽게 이해하고 직접 체험할 수 있는 몰입형 문화관광 경험을 제공하는 것을 목표 |
+| 사용 기술 | **프론트엔드**<br><br>- Next.js, React, TypeScript, Tailwind CSS, Kakao Maps API<br><br>**백엔드**<br><br>- Node.js , MySQL, FastAPI<br><br>**데이터 수집**<br><br>- 관광지 위치, 관광지 관련 이미지 및 텍스트 데이터 분석<br><br>**AI 및 추천 시스템**<br><br>- 스토리 기반 관광 코스 추천 알고리즘, LLM 기반 역사 요약 및 다국어 번역 |
 | 개발환경 | 1. Client 디바이스를 PC로 제공<br>2. FE는 Next.js(React), TypeScript 사용<br>3. BE는 FastAPI 사용<br>4. DB는 PostgreSQL 사용<br>5. 사용하는 특별한 라이브러리는 FE ( Tailwind CSS, TanStack Query, Leaflet) / BE ( SQLAlchemy, Pydantic, Uvicorn) 사용<br>6. API Call로 사용할 서비스는 OpenAI 사용
 | 사용하는 소프트웨어 URL | 1. Client 디바이스를 PC로 제공<br>2. FE는 Next.js(React), TypeScript 사용<br>3. BE는 FastAPI 사용<br>4. DB는 PostgreSQL 사용<br>5. 사용하는 특별한 라이브러리는 FE ( Tailwind CSS, TanStack Query, Leaflet) / BE ( SQLAlchemy, Pydantic, Uvicorn) 사용<br>6. API Call로 사용할 서비스는 OpenAI 사용
-| 기대 효과 | 스토리 기반 접근을 통해 외국인과 국내 사용자 모두가 한국 역사를 쉽게 이해하고 실제 역사 장소를 체험하도록 유도하여 문화관광 참여도와 관광 활성화를 동시에 높이기 |
+| 기대 효과 | 모두가 쉽게 이해하고 직접 체험할 수 있는 몰입형 문화 관광 경험을 제공하여 한국 역사에 대한 사람들의 관심과 흥미를 유도한다. 또한 이에 따른 한국 관광지 활성화를 목표로 한다. |
 | GitHub Repo | [https://github.com/greenfield-2026-capstone/greenfield-project](https://github.com/greenfield-2026-capstone/greenfield-project) |
 | Team Ground Rule | https://github.com/greenfield-2026-capstone/greenfield-project/blob/main/Team_Ground_Rule.md |
-| 최종수정일 | 2026.3.16 |
+| 최종수정일 | 2026.4.12 |
 
 [↑ 목록으로](#2026-spring-전체-프로젝트-리스트)
 
