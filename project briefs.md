@@ -367,22 +367,22 @@
 
 | 항목 | 내용 |
 |------|------|
-| 프로젝트명 | 엣지 디바이스 배포를 위한 Vision Foundation Model의 2:4 구조적 희소성 성능 분석 및 추론 파이프라인 구축 |
+| 프로젝트명 | 2:4 Structured Sparsity for Faster ViT Inference on Edge Devices: TensorRT Fusion and Speed Bottlenecks |
 | 서비스명(브랜드) | |
 | 트랙 | 연구 |
 | 팀명 | 햄부기 |
 | 팀구성 | 신성현, 송영채, 장수연 |
 | 팀지도교수 | 심재형 교수님 |
-| 무엇을 만들고자 하는가 | NVIDIA Ampere 및 차세대 아키텍처에서 지원하는 2:4 Structured Sparsity 기법을 VFM에 적용하여 엣지 디바이스에서의 추론 성능을 극대화하는 파이프라인 구축 |
-| 고객 (누구를 위해) | Edge AI 기반 서비스를 개발하는 학생 팀 및 연구 프로젝트 수행자를 위해 |
-| Pain Point (해결할 문제) | 최근 Vision Foundation Model(VFM)은 강력한 성능을 보여주지만, 엣지 환경에 배포하기에는 다음과 같은 치명적인 한계가 있다.<br><br>- **VFM의 높은 연산 비용**: ViT 기반 모델은 파라미터 수가 방대하여 엣지 GPU에서도 실시간 추론이 어렵다.<br>- **메모리 대역폭 병목**: 대규모 가중치를 메모리에서 불러오는 과정에서 에너지가 소모되고 지연 시간이 발생한다.<br>- **하드웨어 최적화 미비**: 일반적인 Unstructured Sparsity(무작위 희소화)는 가중치를 줄여도 실제 하드웨어(GPU)에서 연산 가속으로 이어지지 않는 경우가 많다.<br><br>따라서 엣지 디바이스(NVIDIA Jetson AGX Orin 등)의 Sparse Tensor Core를 활용하여, 하드웨어 수준에서 성능을 끌어올릴 수 있는 구조적 최적화가 필요하다. |
-| 사용 기술 | **모델 최적화 및 학습**<br>- 2:4 Structured Sparsity: 연속된 4개의 가중치 중 2개를 0으로 제한하는 구조적 희소화 기법으로, Sparse Tensor Core에서 0이 아닌 값만 선택적으로 연산하여 이론적으로 최대 2배의 처리량 향상을 달성할 수 있다.<br>- VFM Fine-tuning: DINOv2나 CLIP 같은 모델에 Sparse-refined 학습을 적용하여 정확도 손실을 최소화한다.<br><br>**추론 최적화**<br>- TensorRT 가속: 2:4 패턴을 인식하는 TensorRT 엔진을 빌드하여 Orin 디바이스에 최적화된 실행 파일을 생성한다.<br><br>**시스템 파이프라인**<br>- End-to-End 파이프라인: 이미지 입력부터 Sparse 연산을 거친 최종 추론까지의 전 과정을 자동화한다. |
+| 무엇을 만들고자 하는가 | 엣지 디바이스(NVIDIA Jetson AGX Orin) 위에서 Vision Transformer(ViT) 계열 모델에 2:4 Structured Sparsity를 적용하고, TensorRT Fusion 병목 현상을 커널 수준에서 분석 및 해결하여 추론 성능을 극대화하는 파이프라인 구축 |
+| 고객 (누구를 위해) | Edge AI 기반 비전 서비스를 개발하는 학생 팀 및 제한된 엣지 환경에서 VFM을 구동해야 하는 연구자를 위해 |
+| Pain Point (해결할 문제) | 기존 VLM의 비전 인코더는 방대한 파라미터로 인해 엣지 환경에서 추론 속도 병목이 발생한다. 이를 해결하고자 NVIDIA Ampere의 2:4 Structured Sparsity를 적용하려 해도, 실제 TensorRT 엔진 빌드 시 MatMul과 GeLU 레이어가 자동으로 퓨전되면서 Sparse Tensor Core가 제대로 활성화되지 않아 기대한 가속 성능(이론상 2배)에 도달하지 못하는 역설적인 문제가 발생한다. |
+| 사용 기술 | **모델 분석 및 변환**<br>- Magnitude 기반 2:4 Pruning: 연속 4개 가중치 중 하위 2개를 0으로 마스킹하여 변환.<br>- QKV Split 최적화: CaiT 모델의 QKV projection을 독립 행렬로 분리하여 Sparsity 활용률 증대.<br><br>**추론 최적화 및 병목 해결**<br>- ONNX Graph Surgery: MatMul 출력 뒤 Identity 노드를 삽입해 TRT Fusion 강제 차단 (Unfused).<br>- Custom Triton Sparse Kernel: MVUE24 알고리즘 기반 커스텀 커널을 직접 구현하여 기댓값 보존.<br>- TensorRT 가속: CUTLASS 백엔드를 강제 사용하여 FP16 기반 엔진 빌드. |
 | 개발환경 | 1. Client 디바이스 — PC (Windows) + Jetson AGX Orin (엣지 디바이스)<br>2. FE — 없음<br>3. BE — 없음<br>4. DB — 없음 (실험 결과는 TensorBoard로 시각화)<br>5. 특별한 라이브러리<br>- PyTorch (모델 학습 및 가지치기)<br>- torch.ao (2:4 Sparsity 적용)<br>- TensorRT (Jetson 추론 최적화)<br>- ONNX (모델 변환)<br>- TensorBoard (실험 결과 시각화)<br>6. API Call 서비스 — 없음 |
-| 사용하는 소프트웨어 URL | - PyTorch(https://pytorch.org/)<br>- TensorRT(https://developer.nvidia.com/tensorrt)<br>- ONNX(https://onnx.ai/)<br>- NVIDIA Developer(https://developer.nvidia.com/) |
-| 기대 효과 | 본 프로젝트를 통해 Vision Foundation Model을 엣지 환경에서도 실시간으로 활용할 수 있는 기반을 마련할 수 있으며, 기존 Dense 모델 대비 연산 속도와 처리량이 크게 개선된다. 특히 2:4 Structured Sparsity와 Sparse Tensor Core를 활용함으로써 단순한 모델 경량화를 넘어 실제 하드웨어 수준에서의 성능 향상을 달성할 수 있다. 또한 pruning 이후 fine-tuning 전략을 통해 정확도 손실을 최소화함으로써, 경량화와 성능 사이의 trade-off 문제를 효과적으로 해결할 수 있다. 결과적으로 본 파이프라인은 다양한 비전 및 멀티모달 모델에 재사용 가능하며, VFM을 실제 산업 현장에 적용 가능한 수준으로 끌어내리는 데 기여할 수 있다. |
+| 사용하는 소프트웨어 URL | - PyTorch(https://pytorch.org/)<br>- TensorRT(https://developer.nvidia.com/tensorrt)<br>- ONNX(https://onnx.ai/)<br>- NVIDIA Developer(https://developer.nvidia.com/) <br>- Triton(https://triton-lang.org/)|
+| 기대 효과 | TensorRT의 자동 레이어 퓨전으로 인해 발생하는 Sparse Tensor Core 미활용 문제를 ONNX Surgery와 커스텀 커널로 직접 우회함으로써, 단순한 모델 경량화를 넘어 이론치에 가까운 실질적인 하드웨어 가속을 달성한다. DeiT, CaiT 등 다양한 비전 모델에 이 일관된 파이프라인을 적용하여, 무거운 VFM을 엣지 환경에서도 병목 없이 실시간으로 구동할 수 있는 핵심 기반을 마련한다. |
 | GitHub Repo | [https://github.com/Ewha-Capstone-Project/Hambugy.git](https://github.com/Ewha-Capstone-Project/Hambugy.git) |
 | Team Ground Rule | [https://github.com/Ewha-Capstone-Project/Hambugy/blob/main/Team_Ground_Rule.md](https://github.com/Ewha-Capstone-Project/Hambugy/blob/main/Team_Ground_Rule.md) |
-| 최종수정일 | 26/04/15 |
+| 최종수정일 | 26/06/03 |
 
 [↑ 목록으로](#2026-spring-전체-프로젝트-리스트)
 
